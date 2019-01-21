@@ -10,16 +10,24 @@ class shar:
         self.cvet=''
         self.circle=''
 r=int(input())
+x=int(input())
+y=int(input())
 dx=int(input())
 dy=int(input())
-a=circle(r,50,r)
+a=circle(x,y,r)
 def update():
-    moveObjectBy(a,dx,dy)
+    global dx
+    global dy
+    moveObjectBy(a, dx, dy)
     x=xCoord(a)
     y=yCoord(a)
     if x==500-r*2:
         dx=-dx
     if y==500-r*2:
         dy=-dy
+    if y==0:
+        dy=-dy
+    if x==0:
+        dx=-dx
 onTimer(update,10)
 run()
